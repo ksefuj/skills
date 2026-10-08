@@ -315,7 +315,7 @@ Key fields:
     <RodzajFaktury>VAT</RodzajFaktury>
     <FaWiersz>
       <NrWierszaFa>1</NrWierszaFa>
-      <P_7>Industrial machinery parts</P_7>
+      <P_7>Truck brake assemblies</P_7>
       <P_8A>pcs</P_8A>
       <P_8B>4</P_8B>
       <P_9A>2000.00</P_9A>
@@ -679,8 +679,23 @@ GTU is a text value in one element: `<GTU>GTU_12</GTU>`
 
 - The old format `<GTU_12>1</GTU_12>` is an XSD error (`GTU_FORMAT`)
 - Maximum 1 GTU per line item
-- GTU_01–GTU_10: goods; GTU_11–GTU_13: intangible services
 - Optional, but it should match the JPK_VAT markings
+
+| Code | Category |
+| --- | --- |
+| `GTU_01` | Alcoholic beverages (CN 2203-2208) |
+| `GTU_02` | Goods under art. 103 ust. 5aa (fuels) |
+| `GTU_03` | Fuel and lubricating oils |
+| `GTU_04` | Tobacco products, e-cigarette liquid |
+| `GTU_05` | Waste (Annex 15 items 79-91) |
+| `GTU_06` | Electronic devices, stretch film |
+| `GTU_07` | Vehicles and vehicle parts (CN 8701-8708) |
+| `GTU_08` | Precious and base metals |
+| `GTU_09` | Medicines, medical devices (art. 37av Pharmaceutical Law) |
+| `GTU_10` | Buildings, structures, land |
+| `GTU_11` | Greenhouse gas emission allowances |
+| `GTU_12` | Intangible services: consulting, legal, accounting, marketing, R&D, training |
+| `GTU_13` | Transport and warehouse management services (PKWiU 49.4, 52.1) |
 
 ### Date Fields
 
