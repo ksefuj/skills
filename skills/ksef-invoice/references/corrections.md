@@ -1,14 +1,11 @@
-# Corrective Invoices — FA(3)
+# Corrective Invoices: FA(3)
 
-> All rules reference the official FA(3) information sheet ([`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)).
-> Generated XML must pass `@ksefuj/validator` (XSD + 42 semantic rules).
-
-## KOR — Standard Corrective Invoice
+## KOR: Standard Corrective Invoice
 
 `RodzajFaktury = "KOR"`
 
-Required by validator rule R11 (RODZAJ_FAKTURY_SECTIONS): corrective invoices must include
-`DaneFaKorygowanej`. Add the corrective elements after `RodzajFaktury` in this xs:sequence order:
+Corrective invoices must include `DaneFaKorygowanej` (validator code `RODZAJ_FAKTURY_SECTIONS`).
+Add the corrective elements after `RodzajFaktury` in this xs:sequence order:
 
 ```xml
 <RodzajFaktury>KOR</RodzajFaktury>
@@ -19,21 +16,21 @@ Required by validator rule R11 (RODZAJ_FAKTURY_SECTIONS): corrective invoices mu
   <NrFaKorygowanej>FV/001/01/2026</NrFaKorygowanej>
   <!-- If the original was submitted to KSeF: -->
   <NrKSeF>1</NrKSeF>
-  <NrKSeFFaKorygowanej>9999999999-20260115-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej>
+  <NrKSeFFaKorygowanej>9999999999-20260115-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej> <!-- KSeF number assigned to the original invoice -->
   <!-- If the original was NOT submitted to KSeF (pre-KSeF invoice): -->
   <!-- <NrKSeFN>1</NrKSeFN> -->
 </DaneFaKorygowanej>
 ```
 
-> Validator rule R29 (KOR_NRKSEF_CONSISTENCY): exactly one of `NrKSeF` or `NrKSeFN` must be set to
-> `1`. When `NrKSeF=1`, `NrKSeFFaKorygowanej` is required. When `NrKSeFN=1`, `NrKSeFFaKorygowanej`
-> must be absent.
+Exactly one of `NrKSeF` or `NrKSeFN` must be set to `1` (`KOR_NRKSEF_CONSISTENCY`). When
+`NrKSeF=1`, `NrKSeFFaKorygowanej` is required. When `NrKSeFN=1`, `NrKSeFFaKorygowanej` must be
+absent.
 
 ## Amounts in Corrective Invoices
 
-Fields P_13_x, P_14_x, P_15 contain the **difference (delta)**, not the corrected total.
+Fields P_13_x, P_14_x, P_15 contain the difference (delta), not the corrected total.
 
-Example — correction in minus: 100 PLN net at 23%:
+Example, correction in minus: 100 PLN net at 23%:
 
 ```xml
 <P_13_1>-100.00</P_13_1>
@@ -41,11 +38,11 @@ Example — correction in minus: 100 PLN net at 23%:
 <P_15>-123.00</P_15>
 ```
 
-> Validator rule R39 (TAX_CALCULATION_MISMATCH) is **skipped** for corrective invoice types
-> (KOR, KOR_ZAL, KOR_ROZ) because correction deltas do not follow normal tax arithmetic.
-> Validator rule R42 (NEGATIVE_QUANTITY_NOT_ALLOWED) is also skipped for corrective invoices.
+The validator skips `TAX_CALCULATION_MISMATCH` for corrective invoice types (KOR, KOR_ZAL,
+KOR_ROZ) because correction deltas do not follow normal tax arithmetic. It also skips
+`NEGATIVE_QUANTITY_NOT_ALLOWED` for them.
 
-## Correcting FaWiersz Lines — Two Methods
+## Correcting FaWiersz Lines: Two Methods
 
 ### Method 1: Delta (difference only)
 
@@ -84,12 +81,12 @@ Example — correction in minus: 100 PLN net at 23%:
 </FaWiersz>
 ```
 
-> Note: When using StanPrzed, duplicate NrWierszaFa values are expected. Validator rule R41
-> (DUPLICATE_LINE_NUMBERS) is skipped for corrective invoice types.
+With `StanPrzed`, duplicate `NrWierszaFa` values are expected. The validator skips
+`DUPLICATE_LINE_NUMBERS` for corrective invoice types.
 
 ## Correcting Buyer Data (Podmiot2K)
 
-When the correction affects buyer identification data, include `Podmiot2K` with the **incorrect**
+When the correction affects buyer identification data, include `Podmiot2K` with the incorrect
 data from the original invoice (to preserve the audit trail):
 
 ```xml
@@ -105,17 +102,17 @@ data from the original invoice (to preserve the audit trail):
 </Podmiot2K>
 ```
 
-> ⚠️ Buyer NIP **cannot be corrected** via a corrective invoice. A wrong NIP requires issuing a
-> correction to zero and then a new invoice with the correct NIP.
+A buyer NIP cannot be corrected with a corrective invoice. A wrong NIP requires a correction to
+zero and then a new invoice with the correct NIP.
 
 ## KOR_ZAL and KOR_ROZ
 
 Same structure as KOR, but:
 
-- `RodzajFaktury = "KOR_ZAL"` — corrective advance invoice
-- `RodzajFaktury = "KOR_ROZ"` — corrective settlement invoice
+- `RodzajFaktury = "KOR_ZAL"`: corrective advance invoice
+- `RodzajFaktury = "KOR_ROZ"`: corrective settlement invoice
 
-For `KOR_ZAL`: `KursWalutyZ` at `Fa` level is valid (as for ZAL). Validator rule R12 applies.
+For `KOR_ZAL`, `KursWalutyZ` at `Fa` level is valid, as for ZAL (`KURS_WALUTY_Z_PLACEMENT`).
 
 ## Minimal KOR Example
 
@@ -129,7 +126,7 @@ For `KOR_ZAL`: `KursWalutyZ` at `Fa` level is valid (as for ZAL). Validator rule
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -140,7 +137,7 @@ For `KOR_ZAL`: `KursWalutyZ` at `Fa` level is valid (as for ZAL). Validator rule
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Buyer Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -175,7 +172,7 @@ For `KOR_ZAL`: `KursWalutyZ` at `Fa` level is valid (as for ZAL). Validator rule
       <DataWystFaKorygowanej>2026-03-01</DataWystFaKorygowanej>
       <NrFaKorygowanej>FV/001/03/2026</NrFaKorygowanej>
       <NrKSeF>1</NrKSeF>
-      <NrKSeFFaKorygowanej>9999999999-20260301-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej>
+      <NrKSeFFaKorygowanej>9999999999-20260301-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej> <!-- KSeF number assigned to the original invoice -->
     </DaneFaKorygowanej>
     <FaWiersz>
       <NrWierszaFa>1</NrWierszaFa>

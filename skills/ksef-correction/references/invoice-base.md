@@ -1,7 +1,6 @@
 # FA(3) Invoice Base Structure
 
-> Minimal reference for generating complete corrective invoice XML.
-> For the full field reference, see `skills/ksef-fa3/SKILL.md` (in-repo).
+Minimal reference for generating complete corrective invoice XML.
 
 ## Namespace and Header
 
@@ -15,12 +14,12 @@
   </Naglowek>
 ```
 
-## Podmiot1 (Seller — always Polish NIP)
+## Podmiot1 (Seller, always a Polish NIP)
 
 ```xml
 <Podmiot1>
   <DaneIdentyfikacyjne>
-    <NIP>1234567890</NIP>
+    <NIP>1234563218</NIP>
     <Nazwa>Company Name</Nazwa>
   </DaneIdentyfikacyjne>
   <Adres>
@@ -31,14 +30,14 @@
 </Podmiot1>
 ```
 
-## Podmiot2 (Buyer — Four Patterns)
+## Podmiot2 (Buyer): Four Patterns
 
-**Polish company:**
+Polish company:
 
 ```xml
 <Podmiot2>
   <DaneIdentyfikacyjne>
-    <NIP>0987654321</NIP>
+    <NIP>9876543210</NIP>
     <Nazwa>Buyer Name</Nazwa>
   </DaneIdentyfikacyjne>
   <Adres>
@@ -51,7 +50,7 @@
 </Podmiot2>
 ```
 
-**EU buyer (VAT-UE):**
+EU buyer (VAT-UE):
 
 ```xml
 <Podmiot2>
@@ -70,7 +69,7 @@
 </Podmiot2>
 ```
 
-**Non-EU buyer:**
+Non-EU buyer:
 
 ```xml
 <Podmiot2>
@@ -85,7 +84,7 @@
 </Podmiot2>
 ```
 
-**Consumer / no tax ID:**
+Consumer or no tax ID:
 
 ```xml
 <Podmiot2>
@@ -99,9 +98,9 @@
 </Podmiot2>
 ```
 
-> JST and GV are **always mandatory** in Podmiot2 (validator rules R1, R2).
+`JST` and `GV` are always mandatory in `Podmiot2` (`PODMIOT2_JST_MISSING`, `PODMIOT2_GV_MISSING`).
 
-## Adnotacje — Complete Template
+## Adnotacje: Complete Template
 
 All sub-elements are required. Copy this block and modify only what applies:
 
@@ -130,16 +129,20 @@ For VAT-exempt corrections, replace Zwolnienie:
 ## P_12 Tax Rate Codes
 
 ```
-"23"    — standard 23%
-"8"     — reduced 8%
-"5"     — reduced 5%
-"0 KR"  — 0% domestic
-"0 WDT" — 0% intra-EU supply
-"0 EX"  — 0% export
-"zw"    — VAT exempt
-"oo"    — domestic reverse charge
-"np I"  — outside PL (not art.100 pt4)
-"np II" — intra-EU services art.100 pt4
+"23"    standard 23%
+"22"    22%
+"8"     reduced 8%
+"7"     7%
+"5"     reduced 5%
+"4"     4%
+"3"     3%
+"0 KR"  0% domestic
+"0 WDT" 0% intra-EU supply
+"0 EX"  0% export
+"zw"    VAT exempt
+"oo"    domestic reverse charge
+"np I"  outside PL (not art. 100 pt 4)
+"np II" intra-EU services, art. 100 sec. 1 pt 4
 ```
 
 ## P_13_x Summary Fields
@@ -148,9 +151,11 @@ Only include fields relevant to the transaction. Omit zeros.
 
 | Field | Rate/Type |
 |---|---|
-| P_13_1 | Net at 23% |
-| P_13_2 | Net at 8% |
+| P_13_1 | Net at 23% (or 22%) |
+| P_13_2 | Net at 8% (or 7%) |
 | P_13_3 | Net at 5% |
+| P_13_4 | Net, taxi flat rate |
+| P_13_5 | Net, OSS procedure |
 | P_13_6_1 | Net 0% domestic |
 | P_13_6_2 | Net 0% WDT |
 | P_13_6_3 | Net 0% export |
@@ -158,8 +163,9 @@ Only include fields relevant to the transaction. Omit zeros.
 | P_13_8 | Net outside PL (np I) |
 | P_13_9 | Net art.100 services (np II) |
 | P_13_10 | Net domestic reverse charge |
+| P_13_11 | Net, margin procedure |
 | P_14_1..5 | VAT amounts (only when taxable) |
-| P_15 | **Total — always required** |
+| P_15 | Total, always required |
 
 ## Decimal Precision
 

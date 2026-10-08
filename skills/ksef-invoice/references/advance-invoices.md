@@ -1,35 +1,30 @@
-# Advance Invoices — FA(3)
+# Advance Invoices: FA(3)
 
-> All rules reference the official FA(3) information sheet ([`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)).
-> Generated XML must pass `@ksefuj/validator` (XSD + 42 semantic rules).
-
-## ZAL — Advance Invoice
+## ZAL: Advance Invoice
 
 `RodzajFaktury = "ZAL"`
 
-Required by validator rule R11 (RODZAJ_FAKTURY_SECTIONS): advance invoices must include `Zamowienie`.
+Advance invoices must include `Zamowienie` (validator code `RODZAJ_FAKTURY_SECTIONS`).
 
 Additional elements after `RodzajFaktury`:
 
 ```xml
 <RodzajFaktury>ZAL</RodzajFaktury>
-<!-- KursWalutyZ: ONLY for foreign currency advance invoices (not regular foreign-currency invoices) -->
+<!-- KursWalutyZ: only for foreign currency advance invoices (not regular foreign-currency invoices) -->
 <KursWalutyZ>4.2500</KursWalutyZ>  <!-- NBP exchange rate at the time of advance payment -->
 ```
 
-> Validator rule R12 (KURS_WALUTY_Z_PLACEMENT): `KursWalutyZ` at `Fa` level is valid **only** for
-> ZAL and KOR_ZAL invoice types. For regular foreign-currency invoices, use `FaWiersz/KursWaluty`.
+`KursWalutyZ` at `Fa` level is valid only for ZAL and KOR_ZAL invoice types
+(`KURS_WALUTY_Z_PLACEMENT`). For regular foreign-currency invoices, use `FaWiersz/KursWaluty`.
 
-The `FaWiersz` element is **optional** for advance invoices. If included, it follows the same rules
+The `FaWiersz` element is optional for advance invoices. If included, it follows the same rules
 as in standard invoices.
 
 The `Zamowienie` element contains order lines (what the advance payment covers):
 
 ```xml
 <Zamowienie>
-  <WartoscZamowienia>
-    <P_15Z>1230.00</P_15Z>
-  </WartoscZamowienia>
+  <WartoscZamowienia>1230.00</WartoscZamowienia>
   <ZamowienieWiersz>
     <NrWierszaZam>1</NrWierszaZam>
     <P_7Z>Goods from the order</P_7Z>
@@ -73,7 +68,7 @@ When one advance invoice documents multiple separate advance payments:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -84,7 +79,7 @@ When one advance invoice documents multiple separate advance payments:
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Buyer Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -114,9 +109,7 @@ When one advance invoice documents multiple separate advance payments:
     </Adnotacje>
     <RodzajFaktury>ZAL</RodzajFaktury>
     <Zamowienie>
-      <WartoscZamowienia>
-        <P_15Z>6150.00</P_15Z>
-      </WartoscZamowienia>
+      <WartoscZamowienia>6150.00</WartoscZamowienia>
       <ZamowienieWiersz>
         <NrWierszaZam>1</NrWierszaZam>
         <P_7Z>Custom machinery order</P_7Z>
@@ -132,30 +125,33 @@ When one advance invoice documents multiple separate advance payments:
 </Faktura>
 ```
 
-## ROZ — Settlement Invoice (Final Invoice After Advances)
+## ROZ: Settlement Invoice (Final Invoice After Advances)
 
 `RodzajFaktury = "ROZ"`
 
-Required by validator rule R11: settlement invoices must include `FakturaZaliczkowa` referencing
-the advance invoice(s):
+Settlement invoices must include `FakturaZaliczkowa` referencing the advance invoice(s)
+(`RODZAJ_FAKTURY_SECTIONS`):
 
 ```xml
 <FakturaZaliczkowa>
   <!-- Advance invoice submitted to KSeF: -->
-  <NrKSeFFaZaliczkowej>9999999999-20260310-XXXXXX-YYYYYY-ZZ</NrKSeFFaZaliczkowej>
+  <NrKSeFFaZaliczkowej>9999999999-20260310-XXXXXX-YYYYYY-ZZ</NrKSeFFaZaliczkowej> <!-- KSeF number assigned to the advance invoice -->
   <!-- OR advance invoice NOT submitted to KSeF (pre-KSeF invoice): -->
   <!-- <NrKSeFZN>1</NrKSeFZN> -->
   <!-- <NrFaZaliczkowej>ZAL/001/03/2026</NrFaZaliczkowej> -->
 </FakturaZaliczkowa>
 ```
 
-In `FaWiersz`, show the **full order values**. `P_15` = amount still to pay (total minus all
-advance payments already invoiced).
+In `FaWiersz`, show the full order values. `P_13_x`, `P_14_x` and `P_15` cover only the amount
+still to pay: the order totals minus the advances already invoiced. Omit `Zamowienie`.
 
-Example: total order = 6,150.00 PLN, advance paid = 1,000.00 PLN, remaining = 5,150.00 PLN:
+Example: total order = 5,000.00 net + 1,150.00 VAT = 6,150.00 PLN, advance invoiced = 813.01 net +
+186.99 VAT = 1,000.00 PLN, remaining = 5,150.00 PLN:
 
 ```xml
-<P_13_1>5000.00</P_13_1>
-<P_14_1>1150.00</P_14_1>
+<P_13_1>4186.99</P_13_1>   <!-- 5000.00 - 813.01 -->
+<P_14_1>963.01</P_14_1>    <!-- 1150.00 - 186.99 -->
 <P_15>5150.00</P_15>
 ```
+
+If the advances covered the full amount, `P_15` is `0`.

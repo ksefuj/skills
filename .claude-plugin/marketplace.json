@@ -14,7 +14,7 @@
       "description": "Generate KSeF FA(3) invoice XML and corrective invoices (KOR, KOR_ZAL, KOR_ROZ)",
       "source": "./",
       "strict": false,
-      "skills": ["./skills/ksef-fa3", "./skills/ksef-korekta"]
+      "skills": ["./skills/ksef-invoice", "./skills/ksef-correction"]
     }
   ]
 }
