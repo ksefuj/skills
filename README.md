@@ -3,10 +3,10 @@
 Claude skills for Polish KSeF (Krajowy System e-Faktur) e-invoicing, from the team behind
 [ksefuj.to](https://ksefuj.to).
 
-| Skill                                          | What it does                                                                                                                                                                        |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`ksef-fa3`](skills/ksef-fa3/SKILL.md)         | Generates FA(3) invoice XML from invoice data (PDF, text, form). Covers domestic sales, reverse charge (EU/non-EU), WDT, export, VAT exemption, margin procedure, advance invoices. |
-| [`ksef-korekta`](skills/ksef-korekta/SKILL.md) | Interactive wizard for corrective invoices (KOR, KOR_ZAL, KOR_ROZ), including the two-document flow for a wrong buyer NIP.                                                          |
+| Skill                                                | What it does                                                                                                                                                                        |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`ksef-invoice`](skills/ksef-invoice/SKILL.md)       | Generates FA(3) invoice XML from invoice data (PDF, text, form). Covers domestic sales, reverse charge (EU/non-EU), WDT, export, VAT exemption, margin procedure, advance invoices. |
+| [`ksef-correction`](skills/ksef-correction/SKILL.md) | Interactive wizard for corrective invoices (KOR, KOR_ZAL, KOR_ROZ), including the two-document flow for a wrong buyer NIP.                                                          |
 
 Generated XML should pass [`@ksefuj/validator`](https://www.npmjs.com/package/@ksefuj/validator):
 

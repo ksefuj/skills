@@ -1,5 +1,5 @@
 ---
-name: ksef-fa3
+name: ksef-invoice
 description: >
   Generate and validate KSeF FA(3) e-invoices — Poland's mandatory structured invoice format
   (effective from 2026-02-01 for large companies, 2026-04-01 for all). Use this skill whenever the
@@ -15,9 +15,9 @@ description: >
 >
 > **Bundled references (self-contained for standalone use):**
 >
-> - `references/korekty.md` — corrective invoices (KOR, KOR_ZAL, KOR_ROZ)
-> - `references/zaliczki.md` — advance invoices (ZAL, ROZ)
-> - `references/scenariusze-vat.md` — WDT, export, reverse charge, exemption, margin
+> - `references/corrections.md` — corrective invoices (KOR, KOR_ZAL, KOR_ROZ)
+> - `references/advance-invoices.md` — advance invoices (ZAL, ROZ)
+> - `references/vat-scenarios.md` — WDT, export, reverse charge, exemption, margin
 >
 > **Canonical sources in [ksefuj/ksefuj](https://github.com/ksefuj/ksefuj) (not bundled — for maintainers):**
 >
@@ -491,7 +491,7 @@ Invoice for VAT-exempt services/goods (art. 43, 113, 82 of the VAT Act).
 
 ### Scenario 6: Advance Invoice (ZAL) and Settlement Invoice (ROZ)
 
-See `references/zaliczki.md` for full details. Summary:
+See `references/advance-invoices.md` for full details. Summary:
 
 **ZAL (advance invoice):**
 - `RodzajFaktury = "ZAL"` | requires `Zamowienie` element; `FaWiersz` is allowed but optional
@@ -507,7 +507,7 @@ See `references/zaliczki.md` for full details. Summary:
 
 ### Scenario 7: Corrective Invoice (KOR)
 
-See `references/korekty.md` for full details. Summary:
+See `references/corrections.md` for full details. Summary:
 
 **KOR (corrective invoice):**
 - `RodzajFaktury = "KOR"` | requires `DaneFaKorygowanej` element
@@ -862,8 +862,8 @@ The FA(3) schema may be updated by the Ministry of Finance. When this happens:
 
 For complex scenarios, see the reference files:
 
-- `references/scenariusze-vat.md` — WDT, export, VAT exemption, OSS, reverse charge, margin
-- `references/korekty.md` — corrective invoices (KOR, KOR_ZAL, KOR_ROZ)
-- `references/zaliczki.md` — advance invoices (ZAL, ROZ)
-- **`skills/ksef-korekta/SKILL.md`** — interactive wizard for generating corrective invoices from a
+- `references/vat-scenarios.md` — WDT, export, VAT exemption, OSS, reverse charge, margin
+- `references/corrections.md` — corrective invoices (KOR, KOR_ZAL, KOR_ROZ)
+- `references/advance-invoices.md` — advance invoices (ZAL, ROZ)
+- **`skills/ksef-correction/SKILL.md`** — interactive wizard for generating corrective invoices from a
   faulty original (use when the user has a concrete invoice to correct)

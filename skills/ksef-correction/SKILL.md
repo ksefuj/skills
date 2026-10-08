@@ -1,5 +1,5 @@
 ---
-name: ksef-korekta
+name: ksef-correction
 description: >
   Generate corrective FA(3) invoices (faktury korygujące) for KSeF. Use this skill when the user has
   a faulty invoice and needs to produce a correction (KOR, KOR_ZAL, KOR_ROZ) or a "correction to
@@ -15,7 +15,7 @@ description: >
 > **Bundled references (self-contained for standalone use):**
 >
 > - `references/invoice-base.md` — FA(3) skeleton: Podmiot patterns, Adnotacje, P_12 rates, field order
-> - `references/korekty-procedury.md` — MF procedural rules for corrections (from Podręcznik §2.13)
+> - `references/correction-procedures.md` — MF procedural rules for corrections (from Podręcznik §2.13)
 >
 > **Canonical sources in [ksefuj/ksefuj](https://github.com/ksefuj/ksefuj) (not bundled — for maintainers):**
 >
@@ -23,7 +23,7 @@ description: >
 > - [`docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md`](https://github.com/ksefuj/ksefuj/blob/main/docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md) — full Podręcznik Part II
 >
 > **Validator:** Generated XML must pass `@ksefuj/validator` (XSD + semantic rules). See the
-> [ksef-fa3 skill](../ksef-fa3/SKILL.md) for the full semantic rules reference.
+> [ksef-invoice skill](../ksef-invoice/SKILL.md) for the full semantic rules reference.
 
 ---
 

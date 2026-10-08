@@ -1,7 +1,7 @@
 # FA(3) Invoice Base Structure
 
 > Minimal reference for generating complete corrective invoice XML.
-> For the full field reference, see `skills/ksef-fa3/SKILL.md` (in-repo).
+> For the full field reference, see `ksef-invoice` skill.
 
 ## Namespace and Header
 
