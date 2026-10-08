@@ -142,13 +142,16 @@ Settlement invoices must include `FakturaZaliczkowa` referencing the advance inv
 </FakturaZaliczkowa>
 ```
 
-In `FaWiersz`, show the full order values. `P_15` = amount still to pay (total minus all
-advance payments already invoiced).
+In `FaWiersz`, show the full order values. `P_13_x`, `P_14_x` and `P_15` cover only the amount
+still to pay: the order totals minus the advances already invoiced. Omit `Zamowienie`.
 
-Example: total order = 6,150.00 PLN, advance paid = 1,000.00 PLN, remaining = 5,150.00 PLN:
+Example: total order = 5,000.00 net + 1,150.00 VAT = 6,150.00 PLN, advance invoiced = 813.01 net +
+186.99 VAT = 1,000.00 PLN, remaining = 5,150.00 PLN:
 
 ```xml
-<P_13_1>5000.00</P_13_1>
-<P_14_1>1150.00</P_14_1>
+<P_13_1>4186.99</P_13_1>   <!-- 5000.00 - 813.01 -->
+<P_14_1>963.01</P_14_1>    <!-- 1150.00 - 186.99 -->
 <P_15>5150.00</P_15>
 ```
+
+If the advances covered the full amount, `P_15` is `0`.

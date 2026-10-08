@@ -498,7 +498,8 @@ ZAL (advance invoice):
 
 ROZ (settlement / final invoice):
 - `RodzajFaktury = "ROZ"`; requires a `FakturaZaliczkowa` element referencing the advance invoice(s)
-- `P_15` = amount still to pay (total minus advance payments already paid)
+- `FaWiersz` shows the full order; `P_13_x`, `P_14_x` and `P_15` show only the amount still to pay
+  (totals minus the advances already invoiced); omit `Zamowienie`
 - A ROZ without `FakturaZaliczkowa` triggers `RODZAJ_FAKTURY_SECTIONS`
 
 ---
