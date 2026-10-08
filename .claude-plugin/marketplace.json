@@ -1,0 +1,20 @@
+{
+  "name": "ksefuj",
+  "owner": {
+    "name": "ksefuj",
+    "url": "https://ksefuj.to"
+  },
+  "metadata": {
+    "description": "Claude skills for Polish KSeF FA(3) e-invoicing",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ksef",
+      "description": "Generate KSeF FA(3) invoice XML and corrective invoices (KOR, KOR_ZAL, KOR_ROZ)",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/ksef-fa3", "./skills/ksef-korekta"]
+    }
+  ]
+}

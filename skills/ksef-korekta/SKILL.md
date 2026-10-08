@@ -17,10 +17,10 @@ description: >
 > - `references/invoice-base.md` — FA(3) skeleton: Podmiot patterns, Adnotacje, P_12 rates, field order
 > - `references/korekty-procedury.md` — MF procedural rules for corrections (from Podręcznik §2.13)
 >
-> **In-repo canonical sources (not bundled — for maintainers):**
+> **Canonical sources in [ksefuj/ksefuj](https://github.com/ksefuj/ksefuj) (not bundled — for maintainers):**
 >
-> - `packages/validator/docs/fa3-information-sheet.md` — full schema rules
-> - `docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md` — full Podręcznik Part II
+> - [`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md) — full schema rules
+> - [`docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md`](https://github.com/ksefuj/ksefuj/blob/main/docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md) — full Podręcznik Part II
 >
 > **Validator:** Generated XML must pass `@ksefuj/validator` (XSD + semantic rules). See the
 > [ksef-fa3 skill](../ksef-fa3/SKILL.md) for the full semantic rules reference.

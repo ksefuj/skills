@@ -19,11 +19,11 @@ description: >
 > - `references/zaliczki.md` — advance invoices (ZAL, ROZ)
 > - `references/scenariusze-vat.md` — WDT, export, reverse charge, exemption, margin
 >
-> **In-repo canonical sources (not bundled — for maintainers):**
+> **Canonical sources in [ksefuj/ksefuj](https://github.com/ksefuj/ksefuj) (not bundled — for maintainers):**
 >
-> - `packages/validator/docs/fa3-information-sheet.md` — full schema rules (1,049 lines)
-> - `docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md` — full Podręcznik Part II (1,189 lines)
-> - `packages/validator/src/semantic.ts` — validator rule implementations
+> - [`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md) — full schema rules (1,049 lines)
+> - [`docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md`](https://github.com/ksefuj/ksefuj/blob/main/docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md) — full Podręcznik Part II (1,189 lines)
+> - [`packages/validator/src/semantic.ts`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/src/semantic.ts) — validator rule implementations
 >
 > **Validator:** Generated XML should pass `@ksefuj/validator` (XSD + 42 semantic rules). See the
 > [Semantic Rules Reference](#semantic-rules-reference) section.
@@ -34,8 +34,8 @@ description: >
 
 - **Namespace:** `http://crd.gov.pl/wzor/2025/06/25/13775/`
 - **XSD:** `https://crd.gov.pl/wzor/2025/06/25/13775/schemat.xsd`
-- **FA(3) Information Sheet:** `packages/validator/docs/fa3-information-sheet.md`
-- **Validator semantic rules:** `packages/validator/src/semantic.ts`
+- **FA(3) Information Sheet:** [`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)
+- **Validator semantic rules:** [`packages/validator/src/semantic.ts`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/src/semantic.ts)
 - **KSeF 2.0 (production):** https://ap.ksef.mf.gov.pl/
 - **KSeF 2.0 test environment** (fake data, no legal effect): https://ap-test.ksef.mf.gov.pl/web/
 - **KSeF documentation portal:** https://ksef.podatki.gov.pl/
@@ -728,7 +728,7 @@ FormaPlatnosci values: 1=cash, 2=card, 3=voucher, 4=cheque, 5=credit, 6=bank tra
 ## Semantic Rules Reference
 
 The `@ksefuj/validator` enforces 42 semantic rules. Generated XML **must pass all of them**. Below is
-a compact reference — always consult `packages/validator/src/semantic.ts` for the definitive logic.
+a compact reference — always consult [`packages/validator/src/semantic.ts`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/src/semantic.ts) for the definitive logic.
 
 ### Group 1: Podmiot Rules (§5–§8)
 
@@ -839,10 +839,10 @@ The FA(3) schema may be updated by the Ministry of Finance. When this happens:
 1. **Run `pnpm update-schemas`** — downloads the latest XSD from crd.gov.pl and updates the
    bundled `schemas-data.ts`. Review the diff carefully.
 
-2. **Update `packages/validator/docs/fa3-information-sheet.md`** — this is the constitutional
+2. **Update [`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)** — this is the constitutional
    reference for all rules. Any changes to the official MF information sheet should be reflected here.
 
-3. **Review `packages/validator/src/semantic.ts`** — check if any semantic rules need updating
+3. **Review [`packages/validator/src/semantic.ts`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/src/semantic.ts)** — check if any semantic rules need updating
    based on the schema changes. Add new rules for any newly documented logic.
 
 4. **Review this skill file** — update scenarios, examples, and the semantic rules reference table

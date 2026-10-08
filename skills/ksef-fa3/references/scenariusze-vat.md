@@ -1,6 +1,6 @@
 # VAT Scenarios — FA(3)
 
-> All rules reference the official FA(3) information sheet (`packages/validator/docs/fa3-information-sheet.md`).
+> All rules reference the official FA(3) information sheet ([`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)).
 > Generated XML must pass `@ksefuj/validator` (XSD + 42 semantic rules).
 
 ## 1. Domestic Sale (Standard Rates)

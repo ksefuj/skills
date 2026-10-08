@@ -1,7 +1,7 @@
 # Corrective Invoice Procedures — Official MF Rules
 
 > Source: Podręcznik KSeF 2.0, Cz. II, §2.13 (February 2026 edition).
-> In-repo canonical: `docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md`
+> Canonical source: [`docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md`](https://github.com/ksefuj/ksefuj/blob/main/docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md)
 
 ## Key Principles
 
