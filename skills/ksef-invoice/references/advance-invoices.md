@@ -1,26 +1,23 @@
-# Advance Invoices — FA(3)
+# Advance Invoices: FA(3)
 
-> All rules reference the official FA(3) information sheet ([`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)).
-> Generated XML must pass `@ksefuj/validator` (XSD + 42 semantic rules).
-
-## ZAL — Advance Invoice
+## ZAL: Advance Invoice
 
 `RodzajFaktury = "ZAL"`
 
-Required by validator rule R11 (RODZAJ_FAKTURY_SECTIONS): advance invoices must include `Zamowienie`.
+Advance invoices must include `Zamowienie` (validator code `RODZAJ_FAKTURY_SECTIONS`).
 
 Additional elements after `RodzajFaktury`:
 
 ```xml
 <RodzajFaktury>ZAL</RodzajFaktury>
-<!-- KursWalutyZ: ONLY for foreign currency advance invoices (not regular foreign-currency invoices) -->
+<!-- KursWalutyZ: only for foreign currency advance invoices (not regular foreign-currency invoices) -->
 <KursWalutyZ>4.2500</KursWalutyZ>  <!-- NBP exchange rate at the time of advance payment -->
 ```
 
-> Validator rule R12 (KURS_WALUTY_Z_PLACEMENT): `KursWalutyZ` at `Fa` level is valid **only** for
-> ZAL and KOR_ZAL invoice types. For regular foreign-currency invoices, use `FaWiersz/KursWaluty`.
+`KursWalutyZ` at `Fa` level is valid only for ZAL and KOR_ZAL invoice types
+(`KURS_WALUTY_Z_PLACEMENT`). For regular foreign-currency invoices, use `FaWiersz/KursWaluty`.
 
-The `FaWiersz` element is **optional** for advance invoices. If included, it follows the same rules
+The `FaWiersz` element is optional for advance invoices. If included, it follows the same rules
 as in standard invoices.
 
 The `Zamowienie` element contains order lines (what the advance payment covers):
@@ -132,12 +129,12 @@ When one advance invoice documents multiple separate advance payments:
 </Faktura>
 ```
 
-## ROZ — Settlement Invoice (Final Invoice After Advances)
+## ROZ: Settlement Invoice (Final Invoice After Advances)
 
 `RodzajFaktury = "ROZ"`
 
-Required by validator rule R11: settlement invoices must include `FakturaZaliczkowa` referencing
-the advance invoice(s):
+Settlement invoices must include `FakturaZaliczkowa` referencing the advance invoice(s)
+(`RODZAJ_FAKTURY_SECTIONS`):
 
 ```xml
 <FakturaZaliczkowa>
@@ -149,7 +146,7 @@ the advance invoice(s):
 </FakturaZaliczkowa>
 ```
 
-In `FaWiersz`, show the **full order values**. `P_15` = amount still to pay (total minus all
+In `FaWiersz`, show the full order values. `P_15` = amount still to pay (total minus all
 advance payments already invoiced).
 
 Example: total order = 6,150.00 PLN, advance paid = 1,000.00 PLN, remaining = 5,150.00 PLN:

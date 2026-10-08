@@ -28,42 +28,6 @@ npx @ksefuj/validator invoice.xml
 Download the `.skill` files from [Releases](https://github.com/ksefuj/skills/releases) and upload
 them in the skills section of Claude settings.
 
-## Reference architecture
-
-Each skill is self-contained: its `references/` folder bundles focused extracts (~150 lines each) of
-the canonical sources, which live in [ksefuj/ksefuj](https://github.com/ksefuj/ksefuj):
-
-- [`packages/validator/docs/fa3-information-sheet.md`](https://github.com/ksefuj/ksefuj/blob/main/packages/validator/docs/fa3-information-sheet.md)
-  — schema and validation rules
-- [`docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md`](https://github.com/ksefuj/ksefuj/blob/main/docs/knowledge-base/briefs/podrecznik-ksef-20-czesc-ii.md)
-  — MF operational rules
-
-Extracts instead of copies: full copies drift from the source, and links break once a skill is
-packaged on its own.
-
-### Updating references
-
-When a canonical source changes (schema update, new MF publication):
-
-1. Check whether the change affects any skill's `references/` (grep for the section number).
-2. Update the extract.
-3. Validate the skill's example XML with `npx @ksefuj/validator`.
-
-### Skill authority block
-
-Each `SKILL.md` opens with a block listing what ships with the skill and what is maintainer-only
-context:
-
-```markdown
-> **Bundled references (self-contained for standalone use):**
->
-> - `references/foo.md` — what it covers
->
-> **Canonical sources in ksefuj/ksefuj (not bundled — for maintainers):**
->
-> - `path/to/canonical.md` — full document
-```
-
 ## Releasing
 
 Push a `v*` tag. The release workflow zips each skill into a `.skill` file and attaches it to a
