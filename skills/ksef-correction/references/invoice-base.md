@@ -151,8 +151,8 @@ Only include fields relevant to the transaction. Omit zeros.
 
 | Field | Rate/Type |
 |---|---|
-| P_13_1 | Net at 23% |
-| P_13_2 | Net at 8% |
+| P_13_1 | Net at 23% (or 22%) |
+| P_13_2 | Net at 8% (or 7%) |
 | P_13_3 | Net at 5% |
 | P_13_4 | Net, taxi flat rate |
 | P_13_5 | Net, OSS procedure |

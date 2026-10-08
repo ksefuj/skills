@@ -1,7 +1,7 @@
 ---
 name: ksef-correction
 description: >
-  Guides the user through correcting an invoice that was already issued in KSeF (korekta, faktura
+  Guides the user through correcting an invoice that was already issued (korekta, faktura
   korygująca) and generates the corrective FA(3) XML: KOR, KOR_ZAL, KOR_ROZ, correction to zero,
   wrong buyer NIP (zero and reissue), changed seller or buyer data, batch corrections (korekta
   zbiorcza). Use when the user has a faulty invoice and says correct, fix, korekta, faktura
@@ -334,7 +334,6 @@ When correcting an already-corrected invoice:
 
 1. `DaneFaKorygowanej` always references the original invoice, not the previous correction.
 2. Deltas are relative to the current state (original plus all previous corrections).
-3. KSeF does not track correction chains; each corrective invoice stands on its own.
 
 Example: original 1000 net, correction 1 = -100 (to 900), correction 2 = -200 (to 700). Correction 2
 references the original in `DaneFaKorygowanej` and has `P_13_1 = -200`.

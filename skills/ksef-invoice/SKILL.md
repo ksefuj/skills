@@ -404,7 +404,7 @@ Key fields:
 
 For foreign currency invoices use `FaWiersz/KursWaluty`, not `Fa/KursWalutyZ`. All amounts in `Fa`
 and `FaWiersz` are in the invoice currency. When VAT is charged at a non-zero rate, also provide
-`P_14_xW` (VAT converted to PLN); the validator reports `FOREIGN_CURRENCY_TAX_PLN` otherwise.
+`P_14_1W`..`P_14_4W` (VAT converted to PLN; there is no `P_14_5W`); the validator reports `FOREIGN_CURRENCY_TAX_PLN` otherwise.
 
 ---
 
@@ -680,13 +680,13 @@ GTU is a text value in one element: `<GTU>GTU_12</GTU>`
 
 - The old format `<GTU_12>1</GTU_12>` is an XSD error (`GTU_FORMAT`)
 - Maximum 1 GTU per line item
-- Optional, but it should match the JPK_VAT markings
+- Optional, at the taxpayer's discretion
 
 | Code | Category |
 | --- | --- |
 | `GTU_01` | Alcoholic beverages (CN 2203-2208) |
-| `GTU_02` | Goods under art. 103 ust. 5aa (fuels) |
-| `GTU_03` | Fuel and lubricating oils |
+| `GTU_02` | Motor fuels (art. 103 ust. 5aa) |
+| `GTU_03` | Heating oil and lubricating oils |
 | `GTU_04` | Tobacco products, e-cigarette liquid |
 | `GTU_05` | Waste (Annex 15 items 79-91) |
 | `GTU_06` | Electronic devices, stretch film |
@@ -825,9 +825,10 @@ invoice invalid; warnings do not. Use the code to find the rule that was broken.
 | `CURRENCY_RATE_MISMATCH` | warning | `KursWaluty` differs from the NBP mid-rate for the date required by art. 31a of the VAT Act |
 | `CURRENCY_RATE_UNVERIFIABLE` | warning | The NBP rate could not be fetched or checked |
 
-KSeF also rejects XML that contains processing instructions, a UTF-8 BOM, a non-UTF-8 declared
-encoding, or W3C-discouraged control characters (`XML_PROCESSING_INSTRUCTION`, `XML_BOM_PRESENT`,
-`XML_ENCODING_NOT_UTF8`, `XML_DISCOURAGED_CHARACTER`). Emit plain UTF-8 without them.
+KSeF rejects XML that contains processing instructions, a UTF-8 BOM, a non-UTF-8 declared
+encoding, or W3C-discouraged Unicode characters (`XML_PROCESSING_INSTRUCTION`, `XML_BOM_PRESENT`,
+`XML_ENCODING_NOT_UTF8`, `XML_DISCOURAGED_CHARACTER`): test and demo already do, production from
+19 October 2026. Emit plain UTF-8 without them.
 
 ---
 

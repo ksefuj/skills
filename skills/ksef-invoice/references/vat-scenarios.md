@@ -24,7 +24,7 @@ Example with 23% and 8%:
 - `P_13_6_2`: WDT net value
 - `FaWiersz/P_12 = "0 WDT"`
 - `Adnotacje/P_18 = 2` (no reverse charge: the 0% rate is not reverse charge)
-- GTU according to goods category (e.g. `GTU_07` for vehicles, `GTU_03` for fuel)
+- GTU according to goods category (e.g. `GTU_07` for vehicles, `GTU_02` for motor fuels)
 
 ## 3. Export of Goods (Non-EU)
 
