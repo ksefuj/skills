@@ -24,9 +24,7 @@ The `Zamowienie` element contains order lines (what the advance payment covers):
 
 ```xml
 <Zamowienie>
-  <WartoscZamowienia>
-    <P_15Z>1230.00</P_15Z>
-  </WartoscZamowienia>
+  <WartoscZamowienia>1230.00</WartoscZamowienia>
   <ZamowienieWiersz>
     <NrWierszaZam>1</NrWierszaZam>
     <P_7Z>Goods from the order</P_7Z>
@@ -70,7 +68,7 @@ When one advance invoice documents multiple separate advance payments:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -81,7 +79,7 @@ When one advance invoice documents multiple separate advance payments:
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Buyer Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -111,9 +109,7 @@ When one advance invoice documents multiple separate advance payments:
     </Adnotacje>
     <RodzajFaktury>ZAL</RodzajFaktury>
     <Zamowienie>
-      <WartoscZamowienia>
-        <P_15Z>6150.00</P_15Z>
-      </WartoscZamowienia>
+      <WartoscZamowienia>6150.00</WartoscZamowienia>
       <ZamowienieWiersz>
         <NrWierszaZam>1</NrWierszaZam>
         <P_7Z>Custom machinery order</P_7Z>
@@ -139,7 +135,7 @@ Settlement invoices must include `FakturaZaliczkowa` referencing the advance inv
 ```xml
 <FakturaZaliczkowa>
   <!-- Advance invoice submitted to KSeF: -->
-  <NrKSeFFaZaliczkowej>9999999999-20260310-XXXXXX-YYYYYY-ZZ</NrKSeFFaZaliczkowej>
+  <NrKSeFFaZaliczkowej>9999999999-20260310-XXXXXX-YYYYYY-ZZ</NrKSeFFaZaliczkowej> <!-- KSeF number assigned to the advance invoice -->
   <!-- OR advance invoice NOT submitted to KSeF (pre-KSeF invoice): -->
   <!-- <NrKSeFZN>1</NrKSeFZN> -->
   <!-- <NrFaZaliczkowej>ZAL/001/03/2026</NrFaZaliczkowej> -->

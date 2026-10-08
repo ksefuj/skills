@@ -118,7 +118,7 @@ Key fields:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -129,7 +129,7 @@ Key fields:
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Buyer Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -196,7 +196,7 @@ Key fields:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -207,7 +207,7 @@ Key fields:
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Buyer Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -273,7 +273,7 @@ Key fields:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -348,7 +348,7 @@ Key fields:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -427,7 +427,7 @@ Key fields:
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Medical Clinic Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -438,7 +438,7 @@ Key fields:
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Patient Company Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>

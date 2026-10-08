@@ -117,7 +117,7 @@ Produce the complete corrective invoice XML using the structure below.
   <NrFaKorygowanej>FV/001/03/2026</NrFaKorygowanej>
   <!-- Original was in KSeF: -->
   <NrKSeF>1</NrKSeF>
-  <NrKSeFFaKorygowanej>9999999999-20260301-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej>
+  <NrKSeFFaKorygowanej>9999999999-20260301-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej> <!-- KSeF number assigned to the original invoice -->
   <!-- OR original was NOT in KSeF: -->
   <!-- <NrKSeFN>1</NrKSeFN> -->
 </DaneFaKorygowanej>
@@ -255,7 +255,7 @@ When correcting seller or buyer data (not NIP), use the K-variant elements:
 ```xml
 <Podmiot1K>
   <DaneIdentyfikacyjne>
-    <NIP>1234567890</NIP>
+    <NIP>1234563218</NIP>
     <Nazwa>Old Company Name</Nazwa>
   </DaneIdentyfikacyjne>
   <Adres>
@@ -270,7 +270,7 @@ When correcting seller or buyer data (not NIP), use the K-variant elements:
 ```xml
 <Podmiot2K>
   <DaneIdentyfikacyjne>
-    <NIP>0987654321</NIP>
+    <NIP>9876543210</NIP>
     <Nazwa>Old Buyer Name</Nazwa>
   </DaneIdentyfikacyjne>
   <Adres>

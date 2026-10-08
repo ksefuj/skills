@@ -16,7 +16,7 @@ Add the corrective elements after `RodzajFaktury` in this xs:sequence order:
   <NrFaKorygowanej>FV/001/01/2026</NrFaKorygowanej>
   <!-- If the original was submitted to KSeF: -->
   <NrKSeF>1</NrKSeF>
-  <NrKSeFFaKorygowanej>9999999999-20260115-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej>
+  <NrKSeFFaKorygowanej>9999999999-20260115-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej> <!-- KSeF number assigned to the original invoice -->
   <!-- If the original was NOT submitted to KSeF (pre-KSeF invoice): -->
   <!-- <NrKSeFN>1</NrKSeFN> -->
 </DaneFaKorygowanej>
@@ -126,7 +126,7 @@ For `KOR_ZAL`, `KursWalutyZ` at `Fa` level is valid, as for ZAL (`KURS_WALUTY_Z_
   </Naglowek>
   <Podmiot1>
     <DaneIdentyfikacyjne>
-      <NIP>1234567890</NIP>
+      <NIP>1234563218</NIP>
       <Nazwa>Seller Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -137,7 +137,7 @@ For `KOR_ZAL`, `KursWalutyZ` at `Fa` level is valid, as for ZAL (`KURS_WALUTY_Z_
   </Podmiot1>
   <Podmiot2>
     <DaneIdentyfikacyjne>
-      <NIP>0987654321</NIP>
+      <NIP>9876543210</NIP>
       <Nazwa>Buyer Sp. z o.o.</Nazwa>
     </DaneIdentyfikacyjne>
     <Adres>
@@ -172,7 +172,7 @@ For `KOR_ZAL`, `KursWalutyZ` at `Fa` level is valid, as for ZAL (`KURS_WALUTY_Z_
       <DataWystFaKorygowanej>2026-03-01</DataWystFaKorygowanej>
       <NrFaKorygowanej>FV/001/03/2026</NrFaKorygowanej>
       <NrKSeF>1</NrKSeF>
-      <NrKSeFFaKorygowanej>9999999999-20260301-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej>
+      <NrKSeFFaKorygowanej>9999999999-20260301-XXXXXX-YYYYYY-ZZ</NrKSeFFaKorygowanej> <!-- KSeF number assigned to the original invoice -->
     </DaneFaKorygowanej>
     <FaWiersz>
       <NrWierszaFa>1</NrWierszaFa>

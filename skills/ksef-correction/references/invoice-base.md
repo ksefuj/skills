@@ -19,7 +19,7 @@ Minimal reference for generating complete corrective invoice XML.
 ```xml
 <Podmiot1>
   <DaneIdentyfikacyjne>
-    <NIP>1234567890</NIP>
+    <NIP>1234563218</NIP>
     <Nazwa>Company Name</Nazwa>
   </DaneIdentyfikacyjne>
   <Adres>
@@ -37,7 +37,7 @@ Polish company:
 ```xml
 <Podmiot2>
   <DaneIdentyfikacyjne>
-    <NIP>0987654321</NIP>
+    <NIP>9876543210</NIP>
     <Nazwa>Buyer Name</Nazwa>
   </DaneIdentyfikacyjne>
   <Adres>
