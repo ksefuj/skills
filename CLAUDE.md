@@ -9,7 +9,6 @@ Claude skills for Polish KSeF FA(3) e-invoicing. Part of the ksefuj project
 - `skills/<name>/references/`: bundled extracts, loaded on demand
 - `.claude-plugin/plugin.json`: plugin manifest (name, version, skills); list new skills here
 - `.claude-plugin/marketplace.json`: marketplace manifest pointing at the plugin in the repo root
-- `.claude-plugin/icon.png`: plugin directory icon (square PNG, 512-2048 px)
 - `.github/workflows/release.yml`: packages every `skills/*` folder as a `.skill` file on `v*` tags
 
 ## Rules
