@@ -28,6 +28,14 @@ npx @ksefuj/validator invoice.xml
 Download the `.skill` files from [Releases](https://github.com/ksefuj/skills/releases) and upload
 them in the skills section of Claude settings.
 
+## Privacy
+
+The skills are instructions and reference text only. They contain no code that runs on its own, call
+no external service and store nothing. Invoice data you give Claude (names, NIP numbers, addresses)
+is used only in that conversation to build the XML, under the data terms of the Claude product you
+use. The validator the skills suggest, `npx @ksefuj/validator`, runs on your machine and sends the
+file nowhere. The ksefuj.to website has its own [privacy policy](https://ksefuj.to/privacy).
+
 ## Releasing
 
 Push a `v*` tag. The release workflow zips each skill into a `.skill` file and attaches it to a
