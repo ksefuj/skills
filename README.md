@@ -33,6 +33,12 @@ them in the skills section of Claude settings.
 Push a `v*` tag. The release workflow zips each skill into a `.skill` file and attaches it to a
 GitHub release.
 
+## Related repositories
+
+- [ksefuj/ksefuj](https://github.com/ksefuj/ksefuj): the ksefuj.to website and `@ksefuj/validator`
+- [ksefuj/awesome-ksef](https://github.com/ksefuj/awesome-ksef): a curated list of KSeF tools and
+  resources
+
 ## License
 
 [Apache 2.0](LICENSE)
