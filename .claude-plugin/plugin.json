@@ -1,5 +1,6 @@
 {
   "name": "ksef",
+  "displayName": "KSeF",
   "version": "1.0.0",
   "description": "Generate KSeF FA(3) invoice XML and corrective invoices (KOR, KOR_ZAL, KOR_ROZ) for Polish e-invoicing",
   "author": {
@@ -9,6 +10,16 @@
   "homepage": "https://ksefuj.to",
   "repository": "https://github.com/ksefuj/skills",
   "license": "Apache-2.0",
-  "keywords": ["ksef", "fa3", "e-invoicing", "faktura", "poland", "vat"],
-  "skills": ["./skills/ksef-invoice", "./skills/ksef-correction"]
+  "keywords": [
+    "ksef",
+    "fa3",
+    "e-invoicing",
+    "faktura",
+    "poland",
+    "vat"
+  ],
+  "skills": [
+    "./skills/ksef-invoice",
+    "./skills/ksef-correction"
+  ]
 }
