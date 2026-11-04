@@ -28,6 +28,11 @@ npx @ksefuj/validator invoice.xml
 Download the `.skill` files from [Releases](https://github.com/ksefuj/skills/releases) and upload
 them in the skills section of Claude settings.
 
+### ChatGPT
+
+The skills are also packaged as a ChatGPT custom GPT, for people who do not use Claude. Link coming
+soon. Setup for maintainers: [`chatgpt/README.md`](chatgpt/README.md).
+
 ## Privacy
 
 The skills are instructions and reference text only. They contain no code that runs on its own, call
@@ -38,8 +43,8 @@ file nowhere. The ksefuj.to website has its own [privacy policy](https://ksefuj.
 
 ## Releasing
 
-Push a `v*` tag. The release workflow zips each skill into a `.skill` file and attaches it to a
-GitHub release.
+Push a `v*` tag. The release workflow zips each skill into a `.skill` file, builds
+`chatgpt-knowledge.zip` for the ChatGPT GPT, and attaches them to a GitHub release.
 
 ## Related repositories
 
