@@ -21,7 +21,10 @@ jobs:
             (cd skills && zip -qr "../dist/$name.skill" "$name")
           done
 
+      - name: Build ChatGPT knowledge files
+        run: scripts/build-chatgpt-knowledge.sh
+
       - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/*.skill --generate-notes
+        run: gh release create "$GITHUB_REF_NAME" dist/*.skill dist/chatgpt-knowledge.zip --generate-notes
