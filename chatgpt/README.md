@@ -36,7 +36,7 @@ In chatgpt.com open Explore GPTs, Create, and switch to the Configure tab.
 **Name**
 
 ```
-KSeF: faktury FA(3)
+KSeF: faktury
 ```
 
 **Description** (Polish, under 300 characters)
