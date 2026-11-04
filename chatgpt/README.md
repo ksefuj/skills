@@ -36,7 +36,7 @@ In chatgpt.com open Explore GPTs, Create, and switch to the Configure tab.
 **Name**
 
 ```
-KSeF: faktury FA(3)
+KSeF: faktury
 ```
 
 **Description** (Polish, under 300 characters)
@@ -50,10 +50,10 @@ Pomaga przygotować fakturę lub korektę w formacie KSeF FA(3): pyta o brakują
 **Conversation starters** (one per field)
 
 ```
-Mam fakturę w PDF. Zrób z niej plik XML dla KSeF.
-Wystawiam fakturę dla klienta z Niemiec. Jak ją przygotować?
-Pomyliłem NIP nabywcy na wystawionej fakturze. Jak to poprawić?
-Walidator pokazał błąd w mojej fakturze. Co on oznacza?
+Chcę wystawić klientowi fakturę za usługi z zeszłego miesiąca.
+Wystawiam fakturę za usługę dla firmy z Niemiec. Jaki VAT wpisać?
+Na wystawionej fakturze jest błędny NIP nabywcy. Co teraz?
+Walidator znalazł błąd w mojej fakturze. Co trzeba poprawić?
 ```
 
 **Knowledge**: upload all files from `chatgpt-knowledge.zip` (unzip first and select the `.md`
